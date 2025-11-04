@@ -18,11 +18,11 @@ struct CounterView: View {
             Text("\(counterViewModel.counter)")
             Button("Add 10") {counterViewModel.add()}
                 .buttonStyle(.borderedProminent)
-                .tint(.blue)
+                .tint(.second)
                 .controlSize(.large)
             Button("Reset") {counterViewModel.reset()}
                 .buttonStyle(.borderedProminent)
-                .tint(.red)
+                .tint(.main)
                 .controlSize(.large)
         }
         .padding()

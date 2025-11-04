@@ -26,9 +26,11 @@ struct TodoView: View {
                 }
             }
             .buttonStyle(.borderedProminent)
-            .tint(.blue)
+            .tint(.second)
             
             Text("Compteur : \(todoModel.counter)")
+                .padding(8)
+                .border(Color.main, width: 2)
         }
         .padding()
         .task {
