@@ -61,27 +61,17 @@ struct ProfileView: View {
                 Text("Nom : \(profile.lastName)")
             }
             VStack(alignment: .leading, spacing: 10) {
-                VStack(alignment: .leading, spacing: 5) {
-                    TextField("Nouveau prénom", text: $newFirstName)
-                        .focused($focusedField, equals: .firstName)
-                        .animation(.easeInOut, value: focusedField)
-                    
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundColor(focusedField == .firstName ? .second : .gray.opacity(0.4))
-                        .animation(.easeInOut(duration: 0.2), value: focusedField)
-                }
+                CustomTextField(
+                    placeholder: "Nouveau prénom",
+                    text: $newFirstName,
+                    highlightColor: .second
+                )
                 .frame(width: 200)
-                VStack(alignment: .leading, spacing: 5) {
-                    TextField("Nouveau nom", text: $newLastName)
-                        .focused($focusedField, equals: .lastName)
-                        .animation(.easeInOut, value: focusedField)
-                    
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundColor(focusedField == .lastName ? .second : .gray.opacity(0.4))
-                        .animation(.easeInOut(duration: 0.2), value: focusedField)
-                }
+                CustomTextField(
+                    placeholder: "Nouveau nom",
+                    text: $newLastName,
+                    highlightColor: .second
+                )
                 .frame(width: 200)
             }
             
