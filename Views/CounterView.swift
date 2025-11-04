@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct CounterView: View {
     @State var counterViewModel = CounterViewModel();
@@ -16,14 +17,8 @@ struct CounterView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("\(counterViewModel.counter)")
-            Button("Add 10") {counterViewModel.add()}
-                .buttonStyle(.borderedProminent)
-                .tint(.second)
-                .controlSize(.large)
-            Button("Reset") {counterViewModel.reset()}
-                .buttonStyle(.borderedProminent)
-                .tint(.main)
-                .controlSize(.large)
+            AnimatedButton(title: "Ajouter", color: .second) {counterViewModel.add()}
+            AnimatedButton(title: "Réinitialiser", color: .main) {counterViewModel.reset()}
         }
         .padding()
     }

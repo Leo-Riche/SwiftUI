@@ -19,15 +19,11 @@ struct TodoView: View {
             } else {
                 Text("Chargement...")
             }
-            
-            Button("Add 1") {
+            AnimatedButton(title: "Ajouter 1", color: .second) {
                 Task {
                     await todoModel.add()
                 }
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.second)
-            
+            }            
             Text("Compteur : \(todoModel.counter)")
                 .padding(8)
                 .border(Color.main, width: 2)

@@ -18,7 +18,7 @@ struct SwiftUI_InitApp: App {
                 NavigationLink("Aller au profil") {
                     ProfileView()
                 }
-                NavigationLink("Aller au fetch") {
+                NavigationLink("Aller au todo") {
                     TodoView()
                 }
             }

@@ -15,10 +15,7 @@ struct ProfileView: View {
     @State private var avatarItem: PhotosPickerItem?
     @State private var isPressed = false
     @FocusState private var focusedField: Field?
-        enum Field {
-            case firstName
-            case lastName
-        }
+    enum Field { case firstName, lastName }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -42,27 +39,9 @@ struct ProfileView: View {
                         .font(.title)
                         .bold()
                 }
-                Button(action: {
-                    withAnimation(.spring(response: 0.3, dampingFraction: 0.4)) {
-                        isPressed = true
-                    }
+                AnimatedButton(title: "Modifier", color: .second) {
                     profile.updateFirstName(to: newFirstName)
                     profile.updateLastName(to: newLastName)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.4)) {
-                            isPressed = false
-                        }
-                    }
-                }) {
-                    Text("Modifier")
-                        .bold()
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(Color("Second"))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .scaleEffect(isPressed ? 0.9 : 1.0)
-                        .shadow(radius: isPressed ? 2 : 5)
                 }
             }
             PhotosPicker(selection: $avatarItem, matching: .images) {
